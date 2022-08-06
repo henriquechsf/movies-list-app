@@ -1,9 +1,14 @@
 import { Box, Button, ScrollView, Text } from "native-base";
+import { useState } from "react";
 import { Dimensions } from "react-native";
+import Input from "../../components/Input";
 
 const subtitleMaxWidth = Dimensions.get('window').width / 2;
 
 function Home() {
+
+  const [searchTerm, setSearchTerm] = useState('');
+
   return (
     <ScrollView
       flex={1}
@@ -56,6 +61,16 @@ function Home() {
           </Text>
         </Button>
       </Box>
+
+      <Input
+        placeholder="Search by movie"
+        icon="search"
+        marginTop={8}
+        maxLength={25}
+        value={searchTerm}
+        onChangeText={setSearchTerm}
+        autoCorrect={false}
+      />
     </ScrollView>
   )
 }
