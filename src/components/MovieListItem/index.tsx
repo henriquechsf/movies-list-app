@@ -1,11 +1,18 @@
+import { useNavigation } from "@react-navigation/native";
 import { Image, Pressable } from "native-base";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 
 type Props = {
   movie: any; // TODO: Create movie type
 }
 
 function MovieListItem({ movie }: Props) {
+
+  const navigation = useNavigation();
+
+  const navigateToDetails = useCallback(() => {
+    navigation.navigate('Details', { movieId: movie.id });
+  }, [movie?.id])
 
   const sourceImage = useMemo(() => {
     if (movie.poster_path) {
@@ -20,7 +27,7 @@ function MovieListItem({ movie }: Props) {
       width="288px"
       height="288px"
       marginRight={8}
-      onPress={() => { }}
+      onPress={navigateToDetails}
     >
       <Image
         src={sourceImage}

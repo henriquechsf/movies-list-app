@@ -1,5 +1,7 @@
 import { MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import { Flex, Icon, Pressable, Text } from "native-base";
+import { useCallback } from "react";
 
 type Props = {
   title: string;
@@ -7,6 +9,13 @@ type Props = {
 }
 
 function ScreenHeader({ title, showBackButton = true }: Props) {
+
+  const navigation = useNavigation();
+
+  const handleGoBack = useCallback(() => {
+    navigation.goBack();
+  }, [navigation]);
+
   return (
     <Flex
       flexDirection="row"
@@ -20,7 +29,7 @@ function ScreenHeader({ title, showBackButton = true }: Props) {
         <Pressable
           position="absolute"
           left={-8}
-          onPress={() => { }}
+          onPress={handleGoBack}
         >
           <Icon as={MaterialIcons}
             name="chevron-left"
