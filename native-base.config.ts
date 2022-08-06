@@ -13,7 +13,9 @@ export const theme = extendTheme({
   fontConfig: {
     Archivo: {
       400: 'Archivo_400Regular',
-      500: 'Archivo_500Medium'
+      500: 'Archivo_500Medium',
+      600: 'Archivo_600SemiBold',
+      700: 'Archivo_700Bold'
     },
     Inter: {
       400: 'Inter_400Regular',

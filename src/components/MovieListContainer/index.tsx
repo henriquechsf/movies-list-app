@@ -1,12 +1,13 @@
-import { Text } from "native-base";
+import { ITextProps, Text } from "native-base";
 import MovieList from "../MovieList";
 
 type Props = {
   title: string;
   data: any[]; // TODO: Create movie type
+  titleProps?: ITextProps;
 }
 
-function MovieListContainer({ title, data }: Props) {
+function MovieListContainer({ title, data, titleProps }: Props) {
   return (
     <>
       <Text
@@ -14,9 +15,11 @@ function MovieListContainer({ title, data }: Props) {
         fontWeight="semibold"
         fontSize="lg"
         marginTop={8}
+        {...titleProps}
       >
         {title}
       </Text>
+
       <MovieList
         data={data}
         containerStyle={{ marginTop: 4 }}
