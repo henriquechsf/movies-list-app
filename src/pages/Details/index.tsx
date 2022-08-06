@@ -1,5 +1,7 @@
 import { Box, Divider, Flex, Image, ScrollView, Text } from "native-base";
+import { SafeAreaView } from "react-native-safe-area-context";
 import MovieListContainer from "../../components/MovieListContainer";
+import Header from "../../components/ScreenHeader";
 
 const movie = {
   poster_path: 'https://phobic-heat.surge.sh/images/no_image.jpg',
@@ -42,7 +44,10 @@ function Details() {
       flex={1}
       paddingX={4}
       contentContainerStyle={{ paddingBottom: 16 }}
-      backgroundColor="primary.500">
+      backgroundColor="primary.500"
+    >
+
+      <Header title={movie?.title} />
 
       <Flex
         flexDirection="row"
@@ -122,6 +127,7 @@ function Details() {
         title="Similar"
         data={MovieMock}
         titleProps={{ fontSize: "xl" }} />
+
     </ScrollView>
   )
 }
