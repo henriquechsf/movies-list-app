@@ -1,12 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { Box, NativeBaseProvider, Text } from 'native-base';
 
 export default function App() {
   return (
-    <SafeAreaView>
-      <StatusBar style="auto" />
-      <Text>Hello app!</Text>
-    </SafeAreaView>
+    <NativeBaseProvider>
+      <Box safeArea flex={1} backgroundColor="#121212">
+        <Text color="#ffffff">Hello app!</Text>
+      </Box>
+    </NativeBaseProvider>
   );
 }
