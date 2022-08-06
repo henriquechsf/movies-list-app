@@ -2,8 +2,32 @@ import { Box, Button, ScrollView, Text } from "native-base";
 import { useState } from "react";
 import { Dimensions } from "react-native";
 import Input from "../../components/Input";
+import MovieListContainer from "../../components/MovieListContainer";
 
 const subtitleMaxWidth = Dimensions.get('window').width / 2;
+
+const MovieMock = [
+  {
+    id: Math.random(),
+    title: 'Uncharted'
+  },
+  {
+    id: Math.random(),
+    title: 'Uncharted 2'
+  },
+  {
+    id: Math.random(),
+    title: 'Ted'
+  },
+  {
+    id: Math.random(),
+    title: 'Ted 2'
+  },
+  {
+    id: Math.random(),
+    title: 'Em busca do Soldado Ryan'
+  }
+]
 
 function Home() {
 
@@ -71,6 +95,18 @@ function Home() {
         onChangeText={setSearchTerm}
         autoCorrect={false}
       />
+
+      <MovieListContainer
+        title="Popular"
+        data={MovieMock} />
+
+      <MovieListContainer
+        title="Top Rated"
+        data={MovieMock} />
+
+      <MovieListContainer
+        title="Uncoming"
+        data={MovieMock} />
     </ScrollView>
   )
 }
