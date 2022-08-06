@@ -11,10 +11,20 @@ export const theme = extendTheme({
     }
   },
   fontConfig: {
-
+    Archivo: {
+      400: 'Archivo_400Regular',
+      500: 'Archivo_500Medium'
+    },
+    Inter: {
+      400: 'Inter_400Regular',
+      500: 'Inter_500Medium',
+      600: 'Inter_600SemiBold',
+      700: 'Inter_700Bold'
+    }
   },
   fonts: {
-
+    heading: 'Inter',
+    body: 'Archivo'
   },
   config: {
     initialColorMode: 'dark'
