@@ -1,13 +1,21 @@
 import { useNavigation } from "@react-navigation/native";
 import { KeyboardAvoidingView, Pressable, ScrollView, Text } from "native-base";
 import { useCallback } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { Platform } from "react-native";
 
 import Logo from '../../assets/logo.svg';
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 
+type FormData = {
+  email: string;
+  password: string;
+}
+
 function SignIn() {
+
+  const { control, handleSubmit } = useForm<FormData>();
 
   const navigation = useNavigation();
 
@@ -18,6 +26,8 @@ function SignIn() {
   const handleNavigateToSignUp = useCallback(() => {
     navigation.navigate('SignUp');
   }, [navigation]);
+
+  const onSubmit = (data: FormData) => console.log(data);
 
   return (
     <ScrollView
@@ -48,25 +58,41 @@ function SignIn() {
           Signin to your account
         </Text>
 
-        <Input
-          autoCorrect={false}
-          icon="mail"
-          placeholder="Email"
-          autoCapitalize="none"
-          marginTop={8}
+        <Controller
+          name="email"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              value={value}
+              onChangeText={onChange}
+              autoCorrect={false}
+              icon="mail"
+              placeholder="Email"
+              autoCapitalize="none"
+              marginTop={8}
+            />
+          )}
         />
 
-        <Input
-          autoCorrect={false}
-          icon="lock"
-          placeholder="Password"
-          secureTextEntry
-          marginTop={3}
+        <Controller
+          name="password"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              value={value}
+              onChangeText={onChange}
+              autoCorrect={false}
+              icon="lock"
+              placeholder="Password"
+              secureTextEntry
+              marginTop={3}
+            />
+          )}
         />
 
         <Button
           marginTop={8}
-          onPress={() => { }}
+          onPress={handleSubmit(onSubmit)}
         >
           Sign In
         </Button>
