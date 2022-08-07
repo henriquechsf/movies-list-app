@@ -8,6 +8,8 @@ import { theme } from '../native-base.config';
 import Home from './pages/Home';
 import Details from './pages/Details';
 import Routes from './routes';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 export default function App() {
   const [archivoFontsLoaded] = useArchivoFonts({
