@@ -1,6 +1,7 @@
-import { Box, Button, ScrollView, Text } from "native-base";
+import { Box, ScrollView, Text } from "native-base";
 import { useState } from "react";
 import { Dimensions } from "react-native";
+import Button from "../../components/Button";
 import Input from "../../components/Input";
 import MovieListContainer from "../../components/MovieListContainer";
 
@@ -69,20 +70,11 @@ function Home() {
         </Box>
 
         <Button
-          width="100%"
           maxWidth="88px"
-          backgroundColor="secondary.500"
           marginTop={8}
           onPress={() => { }}
         >
-          <Text
-            color="gray.900"
-            fontWeight="semibold"
-            fontSize="md"
-            fontFamily="heading"
-          >
-            Login
-          </Text>
+          Login
         </Button>
       </Box>
 
