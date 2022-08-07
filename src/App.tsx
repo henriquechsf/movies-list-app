@@ -8,6 +8,7 @@ import { theme } from '../native-base.config';
 import Home from './pages/Home';
 import Details from './pages/Details';
 import Routes from './routes';
+import SignIn from './pages/SignIn';
 
 export default function App() {
   const [archivoFontsLoaded] = useArchivoFonts({
@@ -28,7 +29,8 @@ export default function App() {
       <NavigationContainer>
         <NativeBaseProvider theme={theme}>
           <Box safeArea flex={1} backgroundColor="primary.500">
-            <Routes />
+            {/* <Routes /> */}
+            <SignIn />
           </Box>
         </NativeBaseProvider>
       </NavigationContainer>
