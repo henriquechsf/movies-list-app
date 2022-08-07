@@ -5,6 +5,7 @@ import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold, us
 
 import { Box, NativeBaseProvider, Text } from 'native-base';
 import { theme } from '../native-base.config';
+import Home from './pages/Home';
 
 export default function App() {
   const [archivoFontsLoaded] = useArchivoFonts({
@@ -22,7 +23,7 @@ export default function App() {
     return (
       <NativeBaseProvider theme={theme}>
         <Box safeArea flex={1} backgroundColor="primary.500">
-          <Text fontFamily="heading" fontSize="2xl" color="secondary.500">Hello app!</Text>
+          <Home />
         </Box>
       </NativeBaseProvider>
     );
