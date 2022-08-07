@@ -1,5 +1,6 @@
+import { useNavigation } from "@react-navigation/native";
 import { Box, ScrollView, Text } from "native-base";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Dimensions } from "react-native";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
@@ -33,6 +34,12 @@ const MovieMock = [
 function Home() {
 
   const [searchTerm, setSearchTerm] = useState('');
+
+  const navigation = useNavigation();
+
+  const handleNavigateToSignIn = useCallback(() => {
+    navigation.navigate('SignIn');
+  }, [navigation]);
 
   return (
     <ScrollView
@@ -72,7 +79,7 @@ function Home() {
         <Button
           maxWidth="88px"
           marginTop={8}
-          onPress={() => { }}
+          onPress={handleNavigateToSignIn}
         >
           Login
         </Button>

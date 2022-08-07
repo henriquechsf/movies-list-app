@@ -1,4 +1,6 @@
+import { useNavigation } from "@react-navigation/native";
 import { KeyboardAvoidingView, Pressable, ScrollView, Text } from "native-base";
+import { useCallback } from "react";
 import { Platform } from "react-native";
 
 import Logo from '../../assets/logo.svg';
@@ -6,6 +8,13 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 
 function SignUp() {
+
+  const navigation = useNavigation();
+
+  const handleNavigateToSignIn = useCallback(() => {
+    navigation.navigate('SignIn');
+  }, [navigation]);
+
   return (
     <ScrollView
       backgroundColor="primary.500"
@@ -75,7 +84,7 @@ function SignUp() {
         </Button>
 
         <Pressable
-          onPress={() => { }}
+          onPress={handleNavigateToSignIn}
           position="absolute"
           bottom={6}
         >

@@ -30,8 +30,7 @@ export default function App() {
       <NavigationContainer>
         <NativeBaseProvider theme={theme}>
           <Box safeArea flex={1} backgroundColor="primary.500">
-            {/* <Routes /> */}
-            <SignUp />
+            <Routes />
           </Box>
         </NativeBaseProvider>
       </NavigationContainer>
